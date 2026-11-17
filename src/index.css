@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-cairo: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-amiri: 'Amiri', Georgia, serif;
+    --font-body: 'Cairo', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cairo);
+  }
+}
+
+.font-editorial {
+  font-family: 'Amiri', Georgia, serif;
+}
+
+.font-headline {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Custom scrollbar for news ticker and horizontal carousels */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Animations */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: ticker 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

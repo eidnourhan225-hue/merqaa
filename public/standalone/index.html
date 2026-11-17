@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مِـرْقَـاب | صحيفة إلكترونية مصرية شاملة وعروس الصعيد</title>
+  <meta
+    name="description"
+    content="موقع مرقاب الإخباري - بوابة صحفية إلكترونية شاملة تغطي مصر ومحافظة المنيا وأخبار الجامعات ونبض الشارع وصحافة الحلول والبيانات والفيديو."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- الشريط العلوي للقيادة التحريرية والتاريخ والتبديل -->
+  <div class="top-utility-bar">
+    <div class="container top-utility-inner">
+      <div class="date-cluster">
+        <span id="gregorianDate">جارٍ تحميل التاريخ...</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span id="hijriDate" class="hijri-text"></span>
+      </div>
+
+      <div class="leadership-cluster">
+        <span>رئيس مجلس الإدارة: <strong>أ.د. إبراهيم حسن أبو الخير</strong></span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>رئيس التحرير: <strong class="accent-name">أ.د. رحاب أنور</strong></span>
+      </div>
+
+      <div class="utility-actions">
+        <button id="bookmarksToggleBtn" type="button" class="text-btn">
+          المحفوظات (<span id="bookmarksCount">0</span>)
+        </button>
+        <button id="themeToggleBtn" type="button" class="icon-toggle-btn" aria-label="تبديل الوضع الليلي">
+          <span id="themeToggleText">الوضع الليلي</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- الترويسة الرئيسية وشريط التنقل -->
+  <header class="site-header">
+    <div class="container masthead-row">
+      <div class="academic-credit">
+        <span>جامعة المنيا · كلية الآداب</span>
+        <span>قسم الإعلام · شعبة الصحافة (2026)</span>
+      </div>
+
+      <a href="#top" id="brandHomeLink" class="brand-lockup">
+        <!-- شعار مِرقاب (برج المراقبة وعين الحقيقة وقلم الصحافة) -->
+        <svg class="brand-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="merqabBg" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#991B1B" />
+              <stop offset="55%" stop-color="#5C0B0B" />
+              <stop offset="100%" stop-color="#1C0707" />
+            </linearGradient>
+            <linearGradient id="merqabGold" x1="16" y1="6" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FEF08A" />
+              <stop offset="45%" stop-color="#F59E0B" />
+              <stop offset="100%" stop-color="#B45309" />
+            </linearGradient>
+          </defs>
+          <rect x="2.5" y="2.5" width="59" height="59" rx="14" fill="url(#merqabBg)" stroke="url(#merqabGold)" stroke-width="2.4" />
+          <polygon points="30,22.5 6,12 6,31" fill="#FDE68A" fill-opacity="0.22" />
+          <polygon points="34,22.5 58,12 58,31" fill="#FDE68A" fill-opacity="0.22" />
+          <circle cx="32" cy="26" r="20.5" stroke="#FCD34D" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="2.5 3.5" />
+          <path d="M32 7.5L35.2 13.5H28.8L32 7.5Z" fill="url(#merqabGold)" />
+          <path d="M25.5 30.5H38.5L42.5 50.5H21.5L25.5 30.5Z" fill="url(#merqabGold)" stroke="#450A0A" stroke-width="1.2" stroke-linejoin="round" />
+          <line x1="32" y1="31" x2="32" y2="42" stroke="#5C0B0B" stroke-width="1.8" stroke-linecap="round" />
+          <circle cx="32" cy="43.5" r="2.1" fill="#5C0B0B" />
+          <rect x="21.5" y="28.5" width="21" height="3.6" rx="1.8" fill="#FFFBEB" stroke="#78350F" stroke-width="1" />
+          <path d="M17.5 22C21.8 15.8 26.8 13.8 32 13.8C37.2 13.8 42.2 15.8 46.5 22C42.2 28.2 37.2 30.2 32 30.2C26.8 30.2 21.8 28.2 17.5 22Z" fill="#FFFFFF" stroke="url(#merqabGold)" stroke-width="1.8" stroke-linejoin="round" />
+          <circle cx="32" cy="22" r="5.2" fill="#991B1B" stroke="#D97706" stroke-width="1.2" />
+          <circle cx="32" cy="22" r="2.3" fill="#0C0A09" />
+          <circle cx="33.7" cy="20.4" r="1.15" fill="#FFFFFF" />
+          <path d="M9 52.5C14.5 49.5 19.5 49.5 25 52.5C30.5 55.5 33.5 55.5 39 52.5C44.5 49.5 49.5 49.5 55 52.5" stroke="#FDE68A" stroke-width="2.1" stroke-linecap="round" />
+        </svg>
+        <div class="brand-text">
+          <h1 class="brand-title">مِـرْقَـاب</h1>
+          <p class="brand-subtitle">صحيفة إخبارية مصرية شاملة · عروس الصعيد المنيا</p>
+        </div>
+      </a>
+
+      <div class="search-box-wrap">
+        <label for="searchInput" class="sr-only">البحث في الأخبار</label>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="ابحث في أخبار المنيا ومصر..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <!-- شريط الأقسام -->
+    <nav class="main-nav" aria-label="الأقسام الرئيسية">
+      <div class="container nav-inner">
+        <div id="categoryTabs" class="category-tabs"></div>
+        <div class="centers-select-wrap">
+          <label for="centerSelect" class="sr-only">مراكز المنيا التسعة</label>
+          <select id="centerSelect" class="center-select">
+            <option value="">مراكز المنيا (9)</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- شريط الأخبار العاجلة -->
+  <div class="breaking-bar">
+    <div class="container breaking-inner">
+      <span class="breaking-label">عاجل</span>
+      <div class="ticker-viewport">
+        <div id="breakingTicker" class="ticker-track"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- المحتوى الرئيسي للصفحة الواحدة -->
+  <main id="top" class="container main-content">
+    <!-- 1. مواقيت الصلاة اليومية التلقائية + حالة الطقس في المنيا -->
+    <section class="top-services-grid" aria-label="مواقيت الصلاة وحالة الطقس">
+      <div class="prayer-card">
+        <div class="service-header">
+          <div>
+            <span class="section-kicker">تحديث تلقائي يومي · بتوقيت محافظة المنيا</span>
+            <h2 class="service-title">مواقيت الصلاة اليوم</h2>
+          </div>
+          <div class="next-prayer-box">
+            <span>الصلاة القادمة: <strong id="nextPrayerName">--</strong></span>
+            <span id="nextPrayerCountdown" class="tabular-nums">--:--:--</span>
+          </div>
+        </div>
+        <div id="prayerTimesGrid" class="prayer-grid"></div>
+      </div>
+
+      <div class="weather-card">
+        <div class="weather-top">
+          <div>
+            <span class="section-kicker">الأرصاد الجوية</span>
+            <h2 class="service-title">طقس المنيا اليوم</h2>
+          </div>
+          <span class="weather-temp tabular-nums" id="weatherTemp">26°</span>
+        </div>
+        <p class="weather-desc" id="weatherDesc">صافٍ ومشمس مع نسيم النيل المعتدل</p>
+        <div class="weather-meta tabular-nums">
+          <span>الرطوبة: <strong id="weatherHumidity">38%</strong></span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span>الرياح: <strong id="weatherWind">14 كم/س</strong></span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span>العظمى/الصغرى: <strong id="weatherRange">28° / 15°</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- شريط التصفية النشطة (يظهر عند البحث أو اختيار قسم/مركز) -->
+    <div id="activeFilterBar" class="active-filter-bar hidden">
+      <div id="activeFilterText" class="filter-summary"></div>
+      <button id="resetFiltersBtn" type="button" class="reset-btn">العودة للصفحة الرئيسية</button>
+    </div>
+
+    <!-- عرض النتائج المصفّاة -->
+    <section id="filteredResultsSection" class="hidden section-block">
+      <div class="section-head">
+        <h2 id="filteredSectionTitle" class="section-title">نتائج التصفية</h2>
+      </div>
+      <div id="filteredArticlesGrid" class="articles-grid"></div>
+    </section>
+
+    <!-- الصفحة الرئيسية المتكاملة -->
+    <div id="homeSectionsWrapper">
+      <!-- 2. الخبر الرئيسي والأخبار المصاحبة -->
+      <section class="section-block" aria-label="الخبر الرئيسي">
+        <div id="leadHeroGrid" class="lead-hero-grid"></div>
+      </section>
+
+      <!-- 3. أخبار محافظة المنيا ومراكزها التسعة -->
+      <section class="section-block" aria-label="محافظة المنيا">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">تغطية ميدانية شاملة · 9 مراكز</span>
+            <h2 class="section-title">أخبار محافظة المنيا وعروس الصعيد</h2>
+          </div>
+          <div id="minyaCentersPills" class="segmented-bar"></div>
+        </div>
+        <div id="minyaArticlesGrid" class="articles-grid"></div>
+      </section>
+
+      <!-- 4. الجامعات ونبض الشارع والثقافي والمتعدد -->
+      <section class="section-block" aria-label="الأقسام التحريرية">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">الجامعات · نبض الشارع · السياسة · الاقتصاد · الرياضة · الحوادث · الصحة · الثقافي</span>
+            <h2 class="section-title">بانوراما الأقسام الإخبارية</h2>
+          </div>
+          <div id="multiDeptTabs" class="segmented-bar"></div>
+        </div>
+        <div id="multiDeptGrid" class="articles-grid"></div>
+      </section>
+
+      <!-- 5. قسم صحافة الحلول -->
+      <section class="section-block editorial-band solutions-band" aria-label="صحافة الحلول">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">من رصد الأزمات إلى توثيق النجاحات الميدانية</span>
+            <h2 class="section-title">قسم صحافة الحلول (Solutions Journalism)</h2>
+          </div>
+        </div>
+        <div id="solutionsGrid" class="solutions-grid"></div>
+      </section>
+
+      <!-- 6. قسم صحافة البيانات -->
+      <section class="section-block editorial-band data-band" aria-label="صحافة البيانات">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">وحدة تحليل البيانات والإنفوجرافيك الصحفي</span>
+            <h2 class="section-title">قسم صحافة البيانات (Data Journalism)</h2>
+          </div>
+          <div id="datasetTabs" class="segmented-bar"></div>
+        </div>
+        <div class="data-layout">
+          <div id="dataChartContainer" class="data-chart-panel"></div>
+          <div id="dataArticlesCol" class="data-articles-col"></div>
+        </div>
+      </section>
+
+      <!-- 7. قسم الفيديوهات وإضافة فيديو -->
+      <section id="videosSection" class="section-block videos-band" aria-label="قسم الفيديوهات">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker dark-kicker">البث الرقمي والتقارير المصورة</span>
+            <h2 class="section-title light-title">قسم الفيديوهات (مِـرْقَـاب فيديو)</h2>
+          </div>
+          <button id="openAddVideoBtn" type="button" class="primary-cta-btn">
+            + إضافة فيديو جديد
+          </button>
+        </div>
+        <div id="videosGrid" class="videos-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- تذييل الصفحة -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3 class="footer-brand">صحيفة مِـرْقَـاب الإلكترونية</h3>
+        <p class="footer-desc">
+          مشروع تخرج الفرقة الرابعة · كلية الآداب قسم الإعلام شعبة الصحافة · جامعة المنيا.
+          إعداد الطالبة: نورهان عيد.
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-heading">الهيئة القيادية</h4>
+        <p class="footer-meta">رئيس مجلس الإدارة: أ.د. إبراهيم حسن أبو الخير</p>
+        <p class="footer-meta">رئيس التحرير: أ.د. رحاب أنور</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">التنقل السريع</h4>
+        <div id="footerCategories" class="footer-links"></div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 صحيفة مِـرْقَـاب · نسخة الويب المستقلة (HTML · CSS · JS)</span>
+      <span><a href="/" class="footer-portal-link">العودة للبوابة التفاعلية الكاملة</a></span>
+    </div>
+  </footer>
+
+  <!-- نافذة قراءة الخبر والمشاركة الاجتماعية -->
+  <div id="articleModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalArticleTitle">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-toolbar">
+        <span id="modalArticleKicker" class="modal-kicker"></span>
+        <div class="modal-toolbar-actions">
+          <button id="fontMinusBtn" type="button" class="tool-btn" title="تصغير الخط">A-</button>
+          <button id="fontPlusBtn" type="button" class="tool-btn" title="تكبير الخط">A+</button>
+          <button id="modalBookmarkBtn" type="button" class="tool-btn">حفظ الخبر</button>
+          <button id="closeArticleModalBtn" type="button" class="close-btn" aria-label="إغلاق">×</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <h2 id="modalArticleTitle" class="modal-title"></h2>
+        <div id="modalArticleMeta" class="modal-meta"></div>
+        <figure id="modalArticleFigure" class="modal-figure"></figure>
+        <p id="modalArticleSummary" class="modal-summary"></p>
+        <div id="modalArticleContent" class="modal-prose"></div>
+        <div id="modalSpecialMeta"></div>
+
+        <!-- أزرار المشاركة الاجتماعية -->
+        <div class="share-box">
+          <span class="share-label">مشاركة الخبر:</span>
+          <div class="share-buttons">
+            <button type="button" class="share-btn wa" data-share="whatsapp">واتساب</button>
+            <button type="button" class="share-btn fb" data-share="facebook">فيسبوك</button>
+            <button type="button" class="share-btn tw" data-share="twitter">منصة X</button>
+            <button type="button" class="share-btn tg" data-share="telegram">تيليجرام</button>
+            <button type="button" class="share-btn cp" data-share="copy" id="copyShareBtn">نسخ الرابط</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة تشغيل الفيديو -->
+  <div id="videoPlayerModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="playerVideoTitle">
+    <div class="modal-dialog modal-lg dark-modal">
+      <div class="modal-toolbar dark-toolbar">
+        <span id="playerVideoCategory" class="modal-kicker light-kicker"></span>
+        <div class="modal-toolbar-actions">
+          <button id="deleteVideoBtn" type="button" class="danger-btn hidden">حذف الفيديو</button>
+          <button id="closePlayerModalBtn" type="button" class="close-btn light-close" aria-label="إغلاق">×</button>
+        </div>
+      </div>
+      <div id="videoPlayerContainer" class="video-stage"></div>
+      <div class="modal-body">
+        <h3 id="playerVideoTitle" class="modal-title light-title"></h3>
+        <p id="playerVideoDesc" class="player-desc"></p>
+        <div id="playerVideoMeta" class="player-meta"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة إضافة فيديو جديد -->
+  <div id="addVideoModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="addVideoTitleHeading">
+    <div class="modal-dialog modal-md">
+      <div class="modal-toolbar">
+        <h3 id="addVideoTitleHeading" class="modal-form-heading">إضافة فيديو جديد إلى قسم الفيديوهات</h3>
+        <button id="closeAddVideoBtn" type="button" class="close-btn" aria-label="إغلاق">×</button>
+      </div>
+      <form id="addVideoForm" class="modal-body form-stack">
+        <div class="mode-switch">
+          <button type="button" id="modeUrlBtn" class="mode-btn active">رابط يوتيوب أو MP4</button>
+          <button type="button" id="modeFileBtn" class="mode-btn">رفع ملف من الجهاز</button>
+        </div>
+
+        <div id="urlInputGroup" class="form-field">
+          <label for="videoUrlInput">رابط الفيديو (YouTube أو رابط MP4 مباشر)</label>
+          <input id="videoUrlInput" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+        </div>
+
+        <div id="fileInputGroup" class="form-field hidden">
+          <label for="videoFileInput">اختر ملف الفيديو من جهازك (MP4 / WebM)</label>
+          <input id="videoFileInput" type="file" accept="video/*" />
+        </div>
+
+        <div class="form-field">
+          <label for="videoTitleInput">عنوان التقرير المصور *</label>
+          <input id="videoTitleInput" type="text" required placeholder="مثال: جولة ميدانية في كورنيش النيل بالمنيا" />
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-field">
+            <label for="videoCatInput">القسم</label>
+            <select id="videoCatInput">
+              <option value="أخبار المنيا">أخبار المنيا</option>
+              <option value="صحافة الحلول">صحافة الحلول</option>
+              <option value="صحافة البيانات">صحافة البيانات</option>
+              <option value="الجامعات">الجامعات</option>
+              <option value="نبض الشارع">نبض الشارع</option>
+              <option value="وثائقي">وثائقي</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="videoDurationInput">المدة</label>
+            <input id="videoDurationInput" type="text" value="03:20" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="videoReporterInput">المعد / المراسل</label>
+          <input id="videoReporterInput" type="text" value="فريق مرقاب الفيديو - إعلام المنيا" />
+        </div>
+
+        <div class="form-field">
+          <label for="videoDescInput">وصف مختصر</label>
+          <textarea id="videoDescInput" rows="3" placeholder="ملخص محتوى التقرير المصور..."></textarea>
+        </div>
+
+        <div id="addVideoError" class="form-error hidden"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="primary-cta-btn">نشر الفيديو في مرقاب</button>
+          <button type="button" id="cancelAddVideoBtn" class="secondary-btn">إلغاء</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- نافذة الأخبار المحفوظة -->
+  <div id="bookmarksModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="bookmarksHeading">
+    <div class="modal-dialog modal-md">
+      <div class="modal-toolbar">
+        <h3 id="bookmarksHeading" class="modal-form-heading">الأخبار المحفوظة للقراءة لاحقاً</h3>
+        <button id="closeBookmarksBtn" type="button" class="close-btn" aria-label="إغلاق">×</button>
+      </div>
+      <div id="bookmarksList" class="modal-body bookmarks-list"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
